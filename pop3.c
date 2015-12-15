@@ -49,7 +49,7 @@ int main(void)
   if(curl) {
     /* Set username and password */ 
     curl_easy_setopt(curl, CURLOPT_USERNAME, "homecontrol@126.com");
-    curl_easy_setopt(curl, CURLOPT_PASSWORD, "hybzqughxqrtxxhk");
+    curl_easy_setopt(curl, CURLOPT_PASSWORD, "--------");
  		//curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "TOP 2 0");
     /* This will fetch message 1 from the user's inbox */ 
     //curl_easy_setopt(curl, CURLOPT_URL, "imap://imap.163.com/INBOX/");
