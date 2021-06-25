@@ -1,7 +1,8 @@
 TOOL_HOME=/home/philip/openwrt/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2
 
-CROSS_COMPILE = mips-openwrt-linux-
-ARCH = mips
+#CROSS_COMPILE = mips-openwrt-linux-
+CROSS_COMPILE = arm-linux-gnueabi-
+ARCH = armv7
 
 CFLAGS= -Wall -Werror -I $(TOOL_HOME)/include -I ./include
 LDFLAGS=-L$(TOOL_HOME)/lib -L ./lib
@@ -13,7 +14,7 @@ MAKE = make
 OBJS = main.o serialib.o udp_server.o
 
 all: lights
-	cp lights /usr/share/nginx/html/
+	cp -f lights ./lights-$(ARCH)
 
 lights: $(OBJS)
 	$(LD) -o lights $(OBJS)
