@@ -8,7 +8,7 @@ CFLAGS= -Wall -Werror -I $(TOOL_HOME)/include -I ./include
 LDFLAGS=-L$(TOOL_HOME)/lib -L ./lib
 LIBS=-lc  -lpthread -ldl -lrt
 CC = $(CROSS_COMPILE)gcc  $(CFLAGS)
-LD = $(CROSS_COMPILE)gcc  $(LDFLAGS) $(LIBS)
+LD = $(CROSS_COMPILE)gcc  $(LDFLAGS) $(LIBS) -static
 MAKE = make
 
 OBJS = main.o serialib.o udp_server.o
