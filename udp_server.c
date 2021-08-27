@@ -52,7 +52,7 @@ static void  logError(const char*message)
 {
 
     openlog("udp-server", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_ERR, message);
+    syslog(LOG_ERR, "%s",message);
     closelog();
 
 }
@@ -61,7 +61,7 @@ static void  errExit(const char*message)
 {
 
     openlog("slog", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_ERR, message);
+    syslog(LOG_ERR,"%s",message);
     closelog();
     exit(1);
 
