@@ -25,7 +25,7 @@ static void  logInfo(const char*message)
 {
 
     openlog("udp-server", LOG_PID|LOG_CONS, LOG_USER);
-    syslog(LOG_INFO, message);
+    syslog(LOG_INFO, "%s\n",message);
     closelog();
 
 }
