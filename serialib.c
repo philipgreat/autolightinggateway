@@ -39,7 +39,7 @@ int serial_open(serial **s, char* port, const unsigned int baud)
         cfsetospeed(&options, speed);
 
 	options.c_cflag |= ( CLOCAL | CREAD |  CS8);
-	//options.c_iflag |= ( IGNPAR | IGNBRK );     
+	options.c_iflag |= ( IGNPAR | IGNBRK ); //ignore    
 	options.c_cc[VTIME]=1;			
 	options.c_cc[VMIN]=1;			
 	tcsetattr((*s)->fd, TCSANOW, &options);
