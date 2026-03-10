@@ -1,7 +1,7 @@
 TOOL_HOME=/home/philip/openwrt/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2
 
 #CROSS_COMPILE = mips-openwrt-linux-
-CROSS_COMPILE = arm-linux-gnueabi-
+CROSS_COMPILE = arm-linux-gnueabihf-
 ARCH = armv7
 
 CFLAGS= -Wall -Werror -I $(TOOL_HOME)/include -I ./include
