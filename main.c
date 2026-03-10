@@ -9,12 +9,9 @@ static void  logInfo(const char*message)
 
     openlog("udp-server", LOG_PID|LOG_CONS, LOG_USER);
     //syslog(LOG_INFO, message);
-<<<<<<< HEAD
     printf("%s",message);
-=======
->>>>>>> b756237 (Add arm support)
     closelog();
-
+	
 }
 
 static void banner(){
