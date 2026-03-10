@@ -14,7 +14,7 @@ MAKE = make
 OBJS = main.o serialib.o udp_server.o
 
 all: lights
-	cp -f lights ./lights-$(ARCH)
+	mv -f lights /data/upload/lights
 
 lights: $(OBJS)
 	$(LD) -o lights $(OBJS)
