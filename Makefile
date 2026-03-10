@@ -15,7 +15,6 @@ OBJS = main.o serialib.o udp_server.o
 
 all: lights
 	cp -f lights ./lights-$(ARCH)
-	cp ./lights-$(ARCH)  ~/website/kg2x-com-website/
 
 lights: $(OBJS)
 	$(LD) -o lights $(OBJS)
