@@ -15,10 +15,7 @@ OBJS = main.o serialib.o udp_server.o
 
 all: lights
 	cp -f lights ./lights-$(ARCH)
-<<<<<<< HEAD
 	cp ./lights-$(ARCH)  ~/website/kg2x-com-website/
-=======
->>>>>>> b756237 (Add arm support)
 
 lights: $(OBJS)
 	$(LD) -o lights $(OBJS)
