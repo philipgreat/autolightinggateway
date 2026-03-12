@@ -17,4 +17,9 @@ clean:
 install:
 	cp $(TARGET) /usr/local/bin/
 
+
+sync:
+	rsync -avz --exclude .git --exclude lights --exclude lights-armv7 ./* root@192.168.2.1:/data/workspace/auto-light
+	rsync -avz --exclude .git --exclude lights --exclude lights-armv7 ./* root@192.168.1.1:/data/workspace/auto-light
+	
 .PHONY: all clean install
