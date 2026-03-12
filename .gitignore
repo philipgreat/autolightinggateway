@@ -1,3 +1,5 @@
 *.a
 *.o
 example*
+lights
+lights-armv7
