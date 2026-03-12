@@ -1,34 +1,20 @@
-TOOL_HOME=/home/philip/openwrt/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2
-
-#CROSS_COMPILE = mips-openwrt-linux-
-#CROSS_COMPILE = arm-linux-gnueabihf-
-ARCH = armv7
-
-CFLAGS= -Wall -Werror -I $(TOOL_HOME)/include -I ./include
-#LDFLAGS=-L$(TOOL_HOME)/lib -L ./lib
-LIBS=-lc  -lpthread -ldl -lrt
-CC = $(CROSS_COMPILE)gcc  $(CFLAGS)
-LD = $(CROSS_COMPILE)gcc  $(LDFLAGS)
-
-
-
-MAKE = make
-
+CC = gcc
+CFLAGS = -Wall -Werror -I./include
+TARGET = lights
 OBJS = main.o serialib.o udp_server.o
 
-all: lights
-	#mv -f lights /data/upload/lights
+all: $(TARGET)
 
-lights: $(OBJS)
-	$(LD) -o lights $(OBJS)
-main.o: main.c
-	$(CC) -c main.c
-serialib.o: serialib.c serialib.h
-	$(CC) -c serialib.c
-udp_server.o: udp_server.c udp_server.h
-	$(CC) -c udp_server.c
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $(OBJS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
 clean:
-	rm -f *.o
+	rm -f $(OBJS) $(TARGET)
 
-sync:
-	rsync -avz --exclude lights --exclude lights-armv7  ./* root@192.168.1.1:/data/workspace
+install:
+	cp $(TARGET) /usr/local/bin/
+
+.PHONY: all clean install
